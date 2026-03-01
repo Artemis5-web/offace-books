@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offace Books</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Simple modal styling */
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000; }
+    .modal-content { background:white; padding:20px; border-radius:5px; width:300px; text-align:center; }
+    .book { border:1px solid #ccc; padding:10px; margin:10px; display:inline-block; width:150px; text-align:center; cursor:pointer; }
+    #books { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; }
+    #categories { display:flex; gap:10px; margin-bottom:20px; }
+    #search { margin-left:20px; padding:5px; }
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN MODAL -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <h2>Login / Sign Up</h2>
+      <input type="text" id="username" placeholder="Enter your name">
+      <button onclick="loginUser()">Login / Sign Up</button>
+    </div>
+  </div>
+
+  <header>
+    <h1>Offace Books</h1>
+    <nav>
+      <button onclick="showHome()">Home</button>
+      <button onclick="showCart()">Cart (<span id="cart-count">0</span>)</button>
+      <input type="text" id="search" placeholder="Search books..." oninput="searchBooks()">
+    </nav>
+  </header>
+
+  <!-- Categories -->
+  <div id="categories"></div>
+
+  <!-- Books -->
+  <div id="books"></div>
+
+  <!-- Cart Section -->
+  <div id="cart" style="display:none;">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+
+    <div id="checkout" style="display:none;">
+      <h3>Complete Your Purchase</h3>
+      <p><strong>Seller:</strong> Joseph Njogu</p>
+      <p><strong>Phone:</strong> 0758118345</p>
+      <p><strong>Email:</strong> njogujoseph793@gmail.com</p>
+      <br>
+      <button onclick="checkoutWhatsApp()">Buy via WhatsApp</button>
+      <button onclick="clearCart()">Clear Cart</button>
+      <br><br>
+      <a href="tel:0758118345"><button>Call Joseph</button></a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
